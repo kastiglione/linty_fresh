@@ -158,7 +158,7 @@ Only reporting the first {2}.""".format(
 
             if no_matching_line_number:
                 no_matching_line_messages = []
-                debug = ""
+                debug = "debug: "
                 for location, problems_for_line in no_matching_line_number:
                     lint_errors += 1
                     path = location[0]
@@ -171,7 +171,7 @@ Only reporting the first {2}.""".format(
                         no_matching_line_messages.append('\t{0}'.format(
                             problem.message))
                 if not debug:
-                    debug = ", ".join(line_map.keys())
+                    debug += ", ".join(line_map.keys())
                 message = ('{0} says: I found some problems with lines not '
                            'modified by this commit:\n{1}\n```\n{2}\n```'.format(
                                linter_name,
